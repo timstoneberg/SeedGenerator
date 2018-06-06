@@ -7,8 +7,8 @@ namespace SeedGenerator {
 
         public static string GenerateRandomSeed(int length) {
             string seed = String.Empty;
-            char[] characterSeed1 = CreateCharacterSeed(length);
-            char[] characterSeed2 = CreateCharacterSeed(length);
+            char[] characterSeed1 = CreateCharacterSeed(length / 2);
+            char[] characterSeed2 = CreateCharacterSeed(length / 2);
 
             seed = new string(characterSeed1).ToUpper();
             seed += new string(characterSeed2).ToUpper();
