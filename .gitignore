@@ -2,3 +2,4 @@
 .vs
 *.csproj
 SeedGenerator/obj
+SeedGenerator/bin/Debug/netstandard2.0

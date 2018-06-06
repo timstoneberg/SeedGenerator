@@ -2,31 +2,35 @@
 
 namespace SeedGenerator {
     public static class SeedGenerator {
-        private static string charactersAvailable = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private static string charactersAvailable = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         private static Random r = new System.Random();
 
-        public static Seed GenerateRandomSeed(int length) {
-            Seed seed = new Seed();
+        public static string GenerateRandomSeed(int length) {
+            string seed = String.Empty;
             char[] characterSeed1 = CreateCharacterSeed(length);
             char[] characterSeed2 = CreateCharacterSeed(length);
-            int numeric1 = ConvertToNumeric(characterSeed1);
-            int numeric2 = ConvertToNumeric(characterSeed2);
 
-            seed.alphaNumericSeed = new string(characterSeed1).ToUpper();
-            seed.alphaNumericSeed += new string(characterSeed2).ToUpper();
-            seed.numericSeed = (numeric1 * 2) + (numeric2 * 2);
+            seed = new string(characterSeed1).ToUpper();
+            seed += new string(characterSeed2).ToUpper();
+
             return seed;
         }
-
-        //public static Seed GenerateRandomSeed(string seed) {
-            
-        //}
 
         private static char[] CreateCharacterSeed(int seedLength) {
             var result = new char[seedLength];
 
             for (int i = 0; i < result.Length; i++) {
                 result[i] = charactersAvailable[r.Next(charactersAvailable.Length)];
+            }
+
+            return result;
+        }
+
+        private static char[] CreateCharacterSeed(string seed) {
+            var result = new char[seed.Length];
+
+            for (int i = 0; i < result.Length; i++) {
+                result[i] = seed[i];
             }
 
             return result;
