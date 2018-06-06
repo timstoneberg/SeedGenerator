@@ -17,17 +17,27 @@ namespace SeedGenerator {
         }
 
         public static int ConvertToNumeric(string stringSeed) {
-            string s = string.Empty;
+            string part1 = string.Empty;
+            string part2 = string.Empty;
             int valueOffset = 1;
 
-            char[] charSeed = CreateCharacterSeed(stringSeed);
+            string stringSeed1 = stringSeed.Substring(0, stringSeed.Length / 2);
+            string stringSeed2 = stringSeed.Substring(stringSeed.Length / 2, stringSeed.Length / 2);
 
-            for (int i = 0; i < charSeed.Length; i++) {
-                s += (valueOffset + charactersAvailable.IndexOf(charSeed[i])).ToString();
+            char[] charSeed1 = CreateCharacterSeed(stringSeed1);
+            char[] charSeed2 = CreateCharacterSeed(stringSeed2);
+
+            for (int i = 0; i < charSeed1.Length; i++) {
+                part1 += (valueOffset + charactersAvailable.IndexOf(charSeed1[i])).ToString();
+            }
+            for (int i = 0; i < charSeed2.Length; i++) {
+                part2 += (valueOffset + charactersAvailable.IndexOf(charSeed2[i])).ToString();
             }
 
-            int result = Int32.Parse(s);
-            return result;
+            int result1 = Int32.Parse(part1);
+            int result2 = Int32.Parse(part2);
+
+            return (result1 * 2) + (result2 * 2);
         }
 
         private static char[] CreateCharacterSeed(int seedLength) {
@@ -59,6 +69,7 @@ namespace SeedGenerator {
             }
 
             int result = Int32.Parse(s);
+            result *= 2;
             return result;
         }
     }
