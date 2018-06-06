@@ -16,6 +16,20 @@ namespace SeedGenerator {
             return seed;
         }
 
+        public static int ConvertToNumeric(string stringSeed) {
+            string s = string.Empty;
+            int valueOffset = 1;
+
+            char[] charSeed = CreateCharacterSeed(stringSeed);
+
+            for (int i = 0; i < charSeed.Length; i++) {
+                s += (valueOffset + charactersAvailable.IndexOf(charSeed[i])).ToString();
+            }
+
+            int result = Int32.Parse(s);
+            return result;
+        }
+
         private static char[] CreateCharacterSeed(int seedLength) {
             var result = new char[seedLength];
 
