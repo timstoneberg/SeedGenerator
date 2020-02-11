@@ -51,8 +51,7 @@ namespace SeedGenerator {
         }
 
         /*  =================================================================
-         *  Converts the alphanumeric seed to a long, prior to passing to
-         *  a random number generator.
+         *  Converts the alphanumeric seed to an integer.
          *  
          *  Properties:
          *      >> seed:  The alphanumeric seed
