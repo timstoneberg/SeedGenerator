@@ -1,4 +1,4 @@
-# Dice Roll
+# Seed Generator
 
 This is a simple class to create a randomized seed that is represented by an alphanumeric string.  The purpose of this is to quickly create a reusable seed for random number generation in a game.
 
